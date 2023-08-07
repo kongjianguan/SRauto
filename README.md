@@ -75,4 +75,6 @@ Runinstant.sh                    立刻执行一次
 
 /sdcard/Android/SRauto/SRauto.txt   日志路径  
 
-/sdcard/Android/SRauto/run.txt   调整运行模式  
+/sdcard/Android/SRauto/run.txt   调整运行模式 
+
+/auto.sh                     自动配置锁屏密码 
