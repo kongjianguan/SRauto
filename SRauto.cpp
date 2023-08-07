@@ -8,6 +8,16 @@
 #include<unistd.h>
 using namespace std;
 
+
+#include <chrono>
+#include <thread>
+bool run_state=false;
+void ensleep(int seconds) {
+    std::this_thread::sleep_for(std::chrono::seconds(seconds));
+}
+
+
+    time_t nowtime;
 int cWeekDay(int y,int m, int d)
 {
     if(m==1||m==2)
@@ -60,6 +70,7 @@ int checktime()
     
 }
 void SysAction(){
+    if(run_state==true){
     system("chmod 777 ./unlock.sh");
     system("sh ./unlock.sh");
     ofstream logfile;
@@ -67,11 +78,13 @@ void SysAction(){
     time_t nowtime;
     time(&nowtime);
     logfile<<endl<<ctime(&nowtime)<<"完成一次";
-    sleep(3600);
     system("echo 已自动清空日志>/sdcard/Android/SRauto/SRauto.txt");
+    }
 }
 int main()
 {   
+    time(&nowtime);
+    tm nt=*localtime(&nowtime);
     while(1){
     system("mkdir -m 777 /sdcard/Android/SRauto/SRauto.txt");
     system("chmod 777 ./SRauto");
@@ -81,6 +94,8 @@ int main()
     time(&nti);
     tm ntime=*localtime(&nti);
 	int der = ntime.tm_wday;
+    time(&nowtime);
+    nt=*localtime(&nowtime);
 	if(run==3)
 	{
 	   return 0; 
@@ -102,6 +117,13 @@ int main()
     {
         SysAction();
     }
-    sleep(60);
+    if(nt.tm_hour==11){
+    run_state=false;
+    }
+    ensleep(60);
     }
 }
+
+
+
+

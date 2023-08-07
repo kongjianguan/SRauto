@@ -4,5 +4,7 @@
 MODDIR=${0%/*}
 
 # 该脚本将在设备开机后作为延迟服务启动
-sleep 30s
-nohup $MODDIR/SRauto >/dev/null
+until [ -d "/sdcard/Android" ]; do
+    sleep 1
+done
+nohup $MODDIR/SRauto > /dev/null 2>&1 &
