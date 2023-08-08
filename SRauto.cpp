@@ -70,7 +70,7 @@ int checktime()
     
 }
 void SysAction(){
-    if(run_state==true){
+    if(run_state==false){
     system("chmod 777 ./unlock.sh");
     system("sh ./unlock.sh");
     ofstream logfile;
@@ -105,6 +105,7 @@ int main()
         if(checktime() && der<6 && der>0)
         {
            SysAction();
+           run_state=true;
         }
         else{
             ofstream loger;
@@ -117,7 +118,7 @@ int main()
     {
         SysAction();
     }
-    if(nt.tm_hour==11){
+    if(nt.tm_hour!=10){
     run_state=false;
     }
     ensleep(60);
