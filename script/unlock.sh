@@ -15,3 +15,4 @@ sleep 30s
 #Loading end.Touch start.
 chmod 777 ./game.sh
 sh ./game.sh
+echo date "完成一次">>/sdcard/Android/SRauto/SRauto.log

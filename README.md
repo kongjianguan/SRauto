@@ -1,9 +1,7 @@
 # 星穹铁道自动任务
 
 本模块运行流程如下
-service.sh执行SRauto  
-
-SRauto判断当前时间是否为指定时间(默认每天10:00)，如果是，那么执行unlock.sh，此时手机仍处黑屏锁屏状态  
+crond进程每到上午10点(默认)就执行unlock.sh
 
 unlock唤醒屏幕，按照给定的坐标输入密码解锁  
 
@@ -17,12 +15,7 @@ unlock打开游戏，开始游戏内流程
 ## 必做
 脚本刷入后需要做什么(每次都要)  
 
-1.运行auto.sh补全解锁的坐标(目前只适用于数字密码解锁)，参考在下面  
-
-2.打开/sdcard/Android/SRauto/run.txt，填入1或2(1:定时运行/2:通过Runinstant.sh运行)  
-
-3.执行service.sh(这一步每次开机都要做)
-
+1.运行auto.sh补全解锁的坐标(目前只适用于数字密码解锁)。具体参考在下面  
 ## 解锁的坐标
 数字 坐标
 1 278 1600  
@@ -63,18 +56,12 @@ unlock打开游戏，开始游戏内流程
 ## 各文件路径
 service.sh                      模块的程序入口  
 
-SRauto（ELF)                         程序主干  
-
 unlock.sh                       解锁并打开应用  
 
 game.sh                       主要是游戏内操作  
 
 order.sh                         用于委托相关  
 
-Runinstant.sh                    立刻执行一次  
-
 /sdcard/Android/SRauto/SRauto.txt   日志路径  
-
-/sdcard/Android/SRauto/run.txt   调整运行模式 
 
 /auto.sh                     自动配置锁屏密码 
