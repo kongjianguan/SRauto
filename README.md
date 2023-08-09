@@ -65,4 +65,6 @@ order.sh                         用于委托相关
 
 /sdcard/Android/SRauto/SRauto.txt   日志路径  
 
-/auto.sh                     自动配置锁屏密码 
+auto.sh                     自动配置锁屏密码 
+
+/data/i_pw.sh                        解锁脚本

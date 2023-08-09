@@ -1,6 +1,6 @@
 id=SRauto
 name=星穹铁道自动任务
-version=v2
-versionCode=15
+version=v2.1
+versionCode=16
 author=Theneworder
-description=目前只能用于清体力，仅限分辨率为2460x1080的机型使用
+description=目前只能用于清体力，分辨率为2460x1080的机型可以直接使用，其他分辨率机型自行适配
