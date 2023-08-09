@@ -1,1 +1,0 @@
-echo $(date +"%Y-%m-%d %T")"运行中" >> /data/adb/modules/SRauto/logfile.log
