@@ -4,7 +4,7 @@ input swipe 527 2137 534 1639 250
 input swipe 527 2137 534 1639 250
 sleep 1s
 #开始解锁
-sh ./i_pw.sh
+sh /data/i_pw.sh
 sleep 2s
 am start -n com.miHoYo.hkrpg/com.mihoyo.combosdk.ComboSDKActivity
 #Enter and Loading
